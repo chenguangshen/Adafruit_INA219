@@ -32,17 +32,9 @@ void loop(void)
   loadvoltage = busvoltage + (shuntvoltage / 1000);
   
   time = millis();
-  
-  //Serial.print("Bus Voltage:   "); Serial.print(busvoltage); Serial.println(" V");
-  //Serial.print("Shunt Voltage: "); Serial.print(shuntvoltage); Serial.println(" mV");
    Serial.print(time);
    Serial.print(",");
    Serial.print(loadvoltage); 
    Serial.print(",");
    Serial.println(current_mA);
-//  Serial.println(" V");
-//  Serial.print("Current:       "); Serial.print(current_mA); Serial.println(" mA");
-//Serial.println("");
-
-//  delay(1000);
 }
