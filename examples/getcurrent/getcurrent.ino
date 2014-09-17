@@ -43,5 +43,6 @@ void loop(void)
   Serial.print(",");
   Serial.println(current_mA);
   
+  // Too fast makes the plotting script lag.
   delay(100);
 }
