@@ -19,12 +19,17 @@ void setup(void)
   ina219.begin();
 }
 
+float shuntvoltage;
+float busvoltage;
+float current_mA;
+float loadvoltage;
+
 void loop(void) 
 {
-  float shuntvoltage = 0;
-  float busvoltage = 0;
-  float current_mA = 0;
-  float loadvoltage = 0;
+  shuntvoltage = 0;
+  busvoltage = 0;
+  current_mA = 0;
+  loadvoltage = 0;
 
   shuntvoltage = ina219.getShuntVoltage_mV();
   busvoltage = ina219.getBusVoltage_V();
@@ -32,9 +37,11 @@ void loop(void)
   loadvoltage = busvoltage + (shuntvoltage / 1000);
   
   time = millis();
-   Serial.print(time);
-   Serial.print(",");
-   Serial.print(loadvoltage); 
-   Serial.print(",");
-   Serial.println(current_mA);
+  Serial.print(time);
+  Serial.print(",");
+  Serial.print(loadvoltage); 
+  Serial.print(",");
+  Serial.println(current_mA);
+  
+  delay(100);
 }
